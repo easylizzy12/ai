@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 여론 조사</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="survey-header">
+            <h1><i class="fas fa-robot"></i> AI 여론 조사</h1>
+            <p>AI 기술의 일상화에 대한 여러분의 의견을 들려주세요</p>
+        </header>
+
+        <form id="surveyForm" class="survey-form">
+            <!-- Q1: AI 일상화에 대한 느낌 -->
+            <div class="question-card">
+                <h3>Q1. AI 일상화에 대해 어떻게 느끼시나요?</h3>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="Q1" value="걱정이 더 크다" required>
+                        <span class="radio-custom"></span>
+                        <span class="option-text">걱정이 더 크다</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="Q1" value="기대가 더 크다">
+                        <span class="radio-custom"></span>
+                        <span class="option-text">기대가 더 크다</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="Q1" value="둘 다 비슷">
+                        <span class="radio-custom"></span>
+                        <span class="option-text">둘 다 비슷</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q2: 가장 우려되는 점 -->
+            <div class="question-card">
+                <h3>Q2. 가장 우려되는 점은?</h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="Q2" value="잘못된 정보">
+                        <span class="checkbox-custom"></span>
+                        <span class="option-text">잘못된 정보</span>
+                    </label>
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="Q2" value="개인 정보 침해">
+                        <span class="checkbox-custom"></span>
+                        <span class="option-text">개인 정보 침해</span>
+                    </label>
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="Q2" value="직업 상실">
+                        <span class="checkbox-custom"></span>
+                        <span class="option-text">직업 상실</span>
+                    </label>
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="Q2" value="AI 편향">
+                        <span class="checkbox-custom"></span>
+                        <span class="option-text">AI 편향</span>
+                    </label>
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="Q2" value="겉돌 수 있는 인간 관계">
+                        <span class="checkbox-custom"></span>
+                        <span class="option-text">겉돌 수 있는 인간 관계</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q3: 규제의 주체 -->
+            <div class="question-card">
+                <h3>Q3. 규제의 주체는 누구여야 하나요?</h3>
+                <div class="select-group">
+                    <select name="Q3" required>
+                        <option value="">선택해주세요</option>
+                        <option value="기업">기업</option>
+                        <option value="정부">정부</option>
+                        <option value="협업">협업</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Q4: AI 창작 대체 -->
+            <div class="question-card">
+                <h3>Q4. AI가 창작을 대체할 것으로 보나요?</h3>
+                <div class="slider-group">
+                    <div class="slider-container">
+                        <input type="range" name="Q4" min="0" max="100" value="50" class="slider" id="Q4Slider">
+                        <div class="slider-labels">
+                            <span>전혀 대체하지 않음</span>
+                            <span>완전히 대체함</span>
+                        </div>
+                        <div class="slider-value">
+                            <span id="Q4Value">50</span>%
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q5: 추가 의견 -->
+            <div class="question-card">
+                <h3>Q5. 추가 의견이 있다면 적어주세요:</h3>
+                <div class="text-group">
+                    <textarea name="Q5" placeholder="자유롭게 의견을 작성해주세요..." rows="4"></textarea>
+                </div>
+            </div>
+
+            <!-- Demographics -->
+            <div class="question-card">
+                <h3>인구통계학적 정보</h3>
+                <div class="demographics-grid">
+                    <div class="demo-item">
+                        <label for="age">연령</label>
+                        <select name="age" required>
+                            <option value="">선택해주세요</option>
+                            <option value="10대">10대</option>
+                            <option value="20대">20대</option>
+                            <option value="30대">30대</option>
+                            <option value="40대">40대</option>
+                            <option value="50대">50대</option>
+                            <option value="60대 이상">60대 이상</option>
+                        </select>
+                    </div>
+                    <div class="demo-item">
+                        <label for="gender">성별</label>
+                        <select name="gender" required>
+                            <option value="">선택해주세요</option>
+                            <option value="남성">남성</option>
+                            <option value="여성">여성</option>
+                            <option value="기타">기타</option>
+                        </select>
+                    </div>
+                    <div class="demo-item">
+                        <label for="region">지역</label>
+                        <select name="region" required>
+                            <option value="">선택해주세요</option>
+                            <option value="서울">서울</option>
+                            <option value="부산">부산</option>
+                            <option value="대구">대구</option>
+                            <option value="인천">인천</option>
+                            <option value="광주">광주</option>
+                            <option value="대전">대전</option>
+                            <option value="울산">울산</option>
+                            <option value="세종">세종</option>
+                            <option value="경기">경기</option>
+                            <option value="강원">강원</option>
+                            <option value="충북">충북</option>
+                            <option value="충남">충남</option>
+                            <option value="전북">전북</option>
+                            <option value="전남">전남</option>
+                            <option value="경북">경북</option>
+                            <option value="경남">경남</option>
+                            <option value="제주">제주</option>
+                        </select>
+                    </div>
+                    <div class="demo-item">
+                        <label for="ai_usage">AI 사용 빈도</label>
+                        <select name="ai_usage" required>
+                            <option value="">선택해주세요</option>
+                            <option value="매일 사용">매일 사용</option>
+                            <option value="주 2-3회">주 2-3회</option>
+                            <option value="주 1회">주 1회</option>
+                            <option value="월 2-3회">월 2-3회</option>
+                            <option value="거의 사용하지 않음">거의 사용하지 않음</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit-section">
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    설문 제출하기
+                </button>
+            </div>
+        </form>
+
+        <!-- Results Modal -->
+        <div id="resultsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>설문 결과</h2>
+                <div id="resultsContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
